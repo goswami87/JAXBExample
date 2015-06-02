@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 	
+  targetNamespace="http://www.com/schema/pkg.1#raml"
+	elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xn="http://www.com/schema/pkg.1#raml">
+
+<xs:element name="RNC">
+<xs:complexType>
+<xs:sequence>
+  <xs:element name="RNCName" type="xs:string" />
+  <xs:element name="RNCIPAddress" type="xs:string" />
+  <xs:element name="WBTS" type="xn:wbts_t" maxOccurs="unbounded"/>
+  <xs:element name="IPNB" type="xn:ipnb_t" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:complexType name="wbts_t">
+<xs:sequence>
+  <xs:element name="WBTSName" type="xs:string" />
+  <xs:element name="BTSIPAddress" type="xs:string" />
+  <xs:element name="WCEL" type="xn:wcel_t" maxOccurs="24"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="wcel_t">
+<xs:sequence>
+  <xs:element name="CellIdentity" type="xs:integer" />
+  <xs:element name="CellName" type="xs:string" />
+  <xs:element name="ADJx" type="xn:adjx_t" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adjx_t">
+<xs:sequence>
+  <xs:element name="CellIdentity" type="xs:integer" />
+  <xs:element name="Frequency" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ipnb_t">
+<xs:sequence>
+  <xs:element name="NBAPIPAddress" type="xs:string" />
+  <xs:element name="SCTPPortNumber" type="xs:integer" />
+  <xs:element name="WBTSid" type="xs:integer" default="65535"/>
+</xs:sequence>
+</xs:complexType>
+
+</xs:schema>
