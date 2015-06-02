@@ -1,5 +1,6 @@
 package com.example.pkg;
-
+/*Jaxb clases can be written himself without using xjc
+compiler, you just need xml annotations*/
 import javax.xml.bind.annotation.*;
 
 @XmlRootElement
